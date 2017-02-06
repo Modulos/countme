@@ -16,6 +16,7 @@
 		503478B91E48E4F3000765BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503478B71E48E4F3000765BE /* LaunchScreen.storyboard */; };
 		503478C41E48E4F3000765BE /* CountMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503478C31E48E4F3000765BE /* CountMeTests.swift */; };
 		503478CF1E48E4F3000765BE /* CountMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503478CE1E48E4F3000765BE /* CountMeUITests.swift */; };
+		503478DD1E48E722000765BE /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503478DC1E48E722000765BE /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		503478CA1E48E4F3000765BE /* CountMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503478CE1E48E4F3000765BE /* CountMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMeUITests.swift; sourceTree = "<group>"; };
 		503478D01E48E4F3000765BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		503478DC1E48E722000765BE /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				503478B51E48E4F3000765BE /* Assets.xcassets */,
 				503478B71E48E4F3000765BE /* LaunchScreen.storyboard */,
 				503478BA1E48E4F3000765BE /* Info.plist */,
+				503478DC1E48E722000765BE /* AddViewController.swift */,
 			);
 			path = CountMe;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503478DD1E48E722000765BE /* AddViewController.swift in Sources */,
 				503478AD1E48E4F3000765BE /* RootViewController.swift in Sources */,
 				503478B11E48E4F3000765BE /* ModelController.swift in Sources */,
 				503478AF1E48E4F3000765BE /* DataViewController.swift in Sources */,

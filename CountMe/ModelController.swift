@@ -30,7 +30,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         pageData = dateFormatter.monthSymbols
     }
 
-    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
+    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> UIViewController? {
         // Return the data view controller for the given index.
         if (self.pageData.count == 0) || (index >= self.pageData.count) {
             return nil
@@ -41,6 +41,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         dataViewController.dataObject = self.pageData[index]
         return dataViewController
     }
+    
 
     func indexOfViewController(_ viewController: DataViewController) -> Int {
         // Return the index of the given data view controller.
@@ -51,9 +52,15 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     // MARK: - Page View Controller Data Source
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        if let viewController = viewController as? AddViewController {
+            return self.viewControllerAtIndex(0, storyboard: viewController.storyboard!)
+        }
+        
         var index = self.indexOfViewController(viewController as! DataViewController)
         if (index == 0) || (index == NSNotFound) {
-            return nil
+            let addViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+            addViewController.dataObject = "Add new count object"
+            return addViewController
         }
         
         index -= 1
@@ -61,15 +68,17 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        if let viewController = viewController as? AddViewController {
+            return self.viewControllerAtIndex(self.pageData.count - 1, storyboard: viewController.storyboard!)
+        }
         var index = self.indexOfViewController(viewController as! DataViewController)
-        if index == NSNotFound {
-            return nil
+        if index == NSNotFound || index + 1 == self.pageData.count {
+            let addViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+            addViewController.dataObject = "Add new count object"
+            return addViewController
         }
         
         index += 1
-        if index == self.pageData.count {
-            return nil
-        }
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
 
